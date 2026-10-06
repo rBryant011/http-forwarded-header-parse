@@ -1,0 +1,17 @@
+{
+  "name": "http-forwarded-header-parse",
+  "version": "0.1.0",
+  "description": "Parses RFC 7239 Forwarded header into proxy hop chain with by/for/host/proto/for parameters, handling quoted-string values and multiple hops.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
