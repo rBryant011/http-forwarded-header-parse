@@ -21,3 +21,10 @@ The trade-off: the parser is read-only and non-validating. It does not check tha
 The `for` parameter name collides with the JavaScript reserved word, so it is exposed as `forParam` on each hop object. Anything that destructures a hop and expects a field literally named `for` will get `undefined`; use `forParam`.
 
 Duplicate unknown parameters within a single hop are not rejected — the last value wins. This matches the common case where a proxy rewrites a custom parameter, and is cheaper than reporting an error that most callers would ignore anyway.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
